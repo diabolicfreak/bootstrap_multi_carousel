@@ -168,9 +168,13 @@ class Plugin_Name {
 	private function define_public_hooks() {
 
 		$plugin_public = new Plugin_Name_Public( $this->get_plugin_name(), $this->get_version() );
-
+        
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+        //Create shortcode for slider (BMC-style1)
+        add_shortcode( 'BMC-style1', array($plugin_public, 'bootstrap_multi_carousel_style1_shortcode') );
+        //Create shortcode for slider (BMC-style1)
+        add_shortcode( 'BMC-style2', array($plugin_public, 'bootstrap_multi_carousel_style2_shortcode') );
 
 	}
 

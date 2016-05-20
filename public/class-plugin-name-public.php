@@ -110,4 +110,113 @@ class Plugin_Name_Public {
 
 	}
 
+    /**
+     * BMC-style1
+     *
+     * Shortcode definition for BMC-style1
+     *
+     * @return HTML html code for shortcode
+     */
+    public function bootstrap_multi_carousel_style1_shortcode(){
+        $slideUrlArrayValues = get_option('slide_url_only_array');
+        ob_start(); ?>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="carousel carousel-showmanymoveone slide" id="carouselABC">
+                    <div class="carousel-inner">
+
+                        <?php
+                        foreach (json_decode(stripslashes($slideUrlArrayValues)) as $key=>$slideUrl) {
+                        ?>
+                            <div class="item <?php if($key == 0) echo "active"; ?>">
+                                <div class="col-xs-12 col-sm-4 col-md-2">
+                                    <a href="#">
+                                        <img src="<?php echo $slideUrl;?>" class="img-responsive">
+                                    </a>
+                                </div>
+
+                                <!-- <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <a href="custom-build" class="bms_image-block">
+                                        <img src="<?php echo $slideUrl; ?>" class="img-responsive">
+                                        <img src="<?php echo plugin_dir_url( __FILE__ );?>admin/img/border.png" class="img-responsive">
+                                    </a>
+                                    <div class="carousel-caption">
+                                        <a href="custom-build">
+                                            <h3>READ<??></h3>
+                                            <h3>MORE</h3>
+                                        </a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div> -->
+                            </div>
+                        <?php
+                        }
+                        ?>
+
+
+                        <!-- <div class="item active">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/0054A6/fff/&amp;text=A" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=B" class="img-responsive"></a></div>
+                        </div> -->
+                    </div>
+
+
+
+                    <a class="left carousel-control" href="#carouselABC" data-slide="prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+                    <a class="right carousel-control" href="#carouselABC" data-slide="next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+
+    /**
+     * BMC-style2
+     *
+     * Shortcode definition for BMC-style2
+     *
+     * @return HTML html code for shortcode
+     */
+    public function bootstrap_multi_carousel_style2_shortcode(){
+        ob_start(); ?>
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="carousel carousel-showmanymoveone slide" id="carouselABC">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/0054A6/fff/&amp;text=A" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=B" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/d6d6d6/333&amp;text=C" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/002040/eeeeee&amp;text=D" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/0054A6/fff/&amp;text=E" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=F" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/eeeeee&amp;text=G" class="img-responsive"></a></div>
+                        </div>
+                        <div class="item">
+                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/40a1ff/002040&amp;text=H" class="img-responsive"></a></div>
+                        </div>
+                    </div>
+                    <a class="left carousel-control" href="#carouselABC" data-slide="prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+                    <a class="right carousel-control" href="#carouselABC" data-slide="next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+
+
 }

@@ -141,8 +141,6 @@ class Plugin_Name_Admin {
         <div class="wrap" ng-app="BMCAdmin">
             <h2>Zircon Carousel Plugin Option</h2>
             <form action="options.php" method="post" ng-controller="BMCAdminController">
-                <!-- <?php settings_fields('acme-footer-settings-slides-group') ?> -->
-                <!-- <?php $bootstrap_multi_carousel_options = get_option('bootstrap_multi_carousel_options') ?> -->
                 <table class="form-table">
                     <tr valign="top" ng-repeat="slide in slides">
                         <th scope="row">
