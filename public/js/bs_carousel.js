@@ -1,12 +1,12 @@
-(function(){
+(function($){
   // setup your carousels as you normally would using JS
   // or via data attributes according to the documentation
   // http://getbootstrap.com/javascript/#carousel
   $('#carousel123').carousel({ interval: 2000 });
   $('#carouselABC').carousel({ interval: 3600 });
-}());
+}(jQuery));
 
-(function(){
+(function($){
   $('.carousel-showmanymoveone .item').each(function(){
     var itemToClone = $(this);
 
@@ -24,4 +24,4 @@
         .appendTo($(this));
     }
   });
-}());
+}(jQuery));

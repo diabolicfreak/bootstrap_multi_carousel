@@ -160,6 +160,12 @@
                     },
                     function(response, status){
                         console.log('The server responded: ' + status);
+                        if(status == 'success'){
+                            $('.message-success').fadeIn().delay(1500).fadeOut();
+                        }
+                        else {
+                            $('.message-error').fadeIn().delay(1500).fadeOut();
+                        }
                     }
                 );
             }

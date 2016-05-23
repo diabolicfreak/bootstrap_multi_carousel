@@ -96,13 +96,12 @@
     left: 0;
   }
 }
-.container {
+/*.container {
   margin-bottom: 50px;
 }
 body {
   font-family: 'Bitter', sans-serif;
   color: #E54A41;
-  /*background-image: url('//static.rtpdesign.co.uk/blog/img/background.png');*/
   background-repeat: no-repeat;
   background-position: right top;
   background-size: 20%;
@@ -131,7 +130,7 @@ h2 {
   position: relative;
   vertical-align: middle;
   text-align: center;
-}
+}*/
 
 
 #carouselABC {

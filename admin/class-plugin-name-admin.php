@@ -73,7 +73,7 @@ class Plugin_Name_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/BMC_style.css', array(), $this->version, 'all' );
 
 	}
 
@@ -139,15 +139,17 @@ class Plugin_Name_Admin {
         ?>
 
         <div class="wrap" ng-app="BMCAdmin">
-            <h2>Zircon Carousel Plugin Option</h2>
+            <h2>Bootstrap Multi Carousel Plugin Options</h2>
+            <h4>Select slides below</h4>
             <form action="options.php" method="post" ng-controller="BMCAdminController">
                 <table class="form-table">
                     <tr valign="top" ng-repeat="slide in slides">
                         <th scope="row">
                             Slide url - {{$index+1}}
                         </th>
-                        <td>
-                            <input type="text" name="acme_footer_slides[{{slide.order}}]" ng-model="slide.url">
+                        <td class="BMC_slide-row">
+                            <input type="text" name="acme_footer_slides[{{slide.order}}]" ng-model="slide.url" ng-hide="true">
+							<img ng-src="{{slide.url}}" class="BMC_slide-thumbnail">
                             <button type="button" name="button" class="button" ng-click="imageUpload(slide)">Upload Slide</button>
                             <button type="button" name="button" class="button" ng-click="deleteSlide(slide)">Delete Slide</button>
                         </td>
@@ -161,7 +163,9 @@ class Plugin_Name_Admin {
 
                     <tr valign="top">
                         <td>
-                            <button type="button" name="button" class="button button-primary" ng-click="submitformhandler()">Save Changes</button>
+                            <button type="button" name="button" class="button button-primary" ng-click="submitformhandler()">Save Changes</button><br />
+                            <span class="message-success">The slides were saved successfully</span>
+                            <span class="message-error">We encountered an error while saving the slides</span>
                         </td>
                     </tr>
 

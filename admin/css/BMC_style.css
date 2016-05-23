@@ -1,0 +1,10 @@
+.message-success, .message-error {
+    display: none;
+    position: absolute;
+    /*color: green;*/
+}
+
+.BMC_slide-row>.BMC_slide-thumbnail {
+    max-width: 200px;
+    max-height: 200px;
+}

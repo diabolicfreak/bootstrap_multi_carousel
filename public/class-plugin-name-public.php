@@ -79,8 +79,10 @@ class Plugin_Name_Public {
         wp_enqueue_style('fa-css', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', array(), $this->version, 'all');
         // Bootsrap carousel plugin
 		wp_enqueue_style( 'bs-carousel-admin-css', plugin_dir_url( __FILE__ ) . 'css/bs_carousel.css', array(), $this->version, 'all' );
-
-        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/plugin-name-public.css', array(), $this->version, 'all' );
+        // Lightbox css
+        wp_enqueue_style('lightbox-css', plugin_dir_url(__FILE__).'css/lightbox.min.css', array(), $this->version, 'all');
+        // Plugin specific css
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/BMC_style-public.css', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -102,11 +104,14 @@ class Plugin_Name_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/plugin-name-public.js', array( 'jquery' ), $this->version, true );
-        // Enqueue twbs Bootsrap javaScript
-        wp_enqueue_script('twbs-bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery'), $this->version, true);
-        // Bootsrap carousel plugin
-		wp_enqueue_script( 'bs-carousel-admin-js', plugin_dir_url( __FILE__ ) . 'js/bs_carousel.js', array( 'jquery' ), $this->version, true );
+    // Enqueue twbs Bootsrap javaScript
+    wp_enqueue_script('twbs-bootstrap-js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', array('jquery'), $this->version, true);
+    // Bootsrap carousel plugin
+	wp_enqueue_script( 'bs-carousel-admin-js', plugin_dir_url( __FILE__ ) . 'js/bs_carousel.js', array( 'jquery' ), $this->version, true );
+    //LightBox js
+    wp_enqueue_script('lightbox-js', plugin_dir_url(__FILE__).'js/lightbox.min.js', array('jquery'), $this->version, true);
+    // Plugin specific js
+	wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/BMC_style-public.js', array( 'jquery' ), $this->version, true );
 
 	}
 
@@ -124,46 +129,20 @@ class Plugin_Name_Public {
             <div class="col-md-10 col-md-offset-1">
                 <div class="carousel carousel-showmanymoveone slide" id="carouselABC">
                     <div class="carousel-inner">
-
                         <?php
                         foreach (json_decode(stripslashes($slideUrlArrayValues)) as $key=>$slideUrl) {
                         ?>
                             <div class="item <?php if($key == 0) echo "active"; ?>">
                                 <div class="col-xs-12 col-sm-4 col-md-2">
-                                    <a href="#">
+                                    <a href="<?php echo $slideUrl;?>" data-lightbox="BMC_images">
                                         <img src="<?php echo $slideUrl;?>" class="img-responsive">
                                     </a>
                                 </div>
-
-                                <!-- <div class="col-xs-12 col-sm-6 col-md-3">
-                                    <a href="custom-build" class="bms_image-block">
-                                        <img src="<?php echo $slideUrl; ?>" class="img-responsive">
-                                        <img src="<?php echo plugin_dir_url( __FILE__ );?>admin/img/border.png" class="img-responsive">
-                                    </a>
-                                    <div class="carousel-caption">
-                                        <a href="custom-build">
-                                            <h3>READ<??></h3>
-                                            <h3>MORE</h3>
-                                        </a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div> -->
                             </div>
                         <?php
                         }
                         ?>
-
-
-                        <!-- <div class="item active">
-                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/0054A6/fff/&amp;text=A" class="img-responsive"></a></div>
-                        </div>
-                        <div class="item">
-                            <div class="col-xs-12 col-sm-4 col-md-2"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=B" class="img-responsive"></a></div>
-                        </div> -->
                     </div>
-
-
-
                     <a class="left carousel-control" href="#carouselABC" data-slide="prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
                     <a class="right carousel-control" href="#carouselABC" data-slide="next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
                 </div>
